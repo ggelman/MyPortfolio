@@ -1,3 +1,4 @@
+"use client"
 import { useEffect, useRef } from "react"
 
 export function About() {
@@ -86,12 +87,10 @@ export function About() {
                   <p className="text-lg">
                     Sou estudante de{" "}
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-purple-700 font-semibold">
-                      Sistemas de Informação na FIAP
-                    </span>{" "}
-                    e atuo como estagiária em Desenvolvimento de Sistemas na{" "}
+                      Sistemas de Informação na FIAP</span> e atuo como estagiária em Desenvolvimento de Sistemas na{" "}
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-700 font-semibold">
                       Hiperstream
-                    </span>
+                    </span>{" "}
                     , uma empresa referência em soluções SaaS para o setor financeiro.
                   </p>
 
@@ -103,7 +102,7 @@ export function About() {
                   </p>
 
                   <p className="text-lg">
-                    Hoje sou responsável por estruturar fluxos de dados, criar testes e manter aplicações rodando com
+                    Atualmente sou responsável por estruturar fluxos de dados, criar testes e manter aplicações rodando com
                     qualidade e foco em SLA. Trabalho diariamente com Git, Azure, .NET, banco de dados (Spanner, SQL
                     Server, DBeaver), e consumo de APIs — tudo isso em um ambiente orientado a dados e colaboração.
                   </p>

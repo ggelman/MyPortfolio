@@ -1,3 +1,5 @@
+"use client"
+
 import { useEffect, useRef, useState } from "react"
 import { Database, Globe, Server, Zap } from "lucide-react"
 
@@ -23,11 +25,11 @@ export function TechStack() {
       icon: Server,
       color: "from-purple-500 to-pink-500",
       techs: [
-        { name: "Node.js", proficiency: 85, icon: "🟢" },
-        { name: "C#", proficiency: 82, icon: "🔷" },
-        { name: ".NET", proficiency: 80, icon: "🔵" },
+        { name: "Python", proficiency: 85, icon: "🟢" },
+        { name: "C#", proficiency: 85, icon: "🔷" },
+        { name: ".NET", proficiency: 90, icon: "🔵" },
         { name: "Java", proficiency: 75, icon: "☕" },
-        { name: "APIs REST", proficiency: 88, icon: "🔗" },
+        { name: "APIs REST", proficiency: 80, icon: "🔗" },
       ],
     },
     {
@@ -36,7 +38,7 @@ export function TechStack() {
       color: "from-green-500 to-emerald-500",
       techs: [
         { name: "SQL Server", proficiency: 85, icon: "🗄️" },
-        { name: "Google Spanner", proficiency: 75, icon: "☁️" },
+        { name: "GCP", proficiency: 80, icon: "☁️" },
         { name: "MongoDB", proficiency: 70, icon: "🍃" },
         { name: "DBeaver", proficiency: 80, icon: "🔧" },
       ],
@@ -47,7 +49,7 @@ export function TechStack() {
       color: "from-orange-500 to-red-500",
       techs: [
         { name: "Git", proficiency: 92, icon: "📝" },
-        { name: "Azure DevOps", proficiency: 78, icon: "☁️" },
+        { name: "Azure DevOps", proficiency: 80, icon: "☁️" },
         { name: "Docker", proficiency: 70, icon: "🐳" },
         { name: "CI/CD", proficiency: 75, icon: "🔄" },
         { name: "Testing (xUnit)", proficiency: 80, icon: "🧪" },
@@ -115,23 +117,17 @@ export function TechStack() {
                       {category.techs.map((tech, techIndex) => (
                         <div key={tech.name} className="space-y-2">
                           <div className="flex items-center justify-between">
-                            <div className="flex items-center space-x-3">
+                          <div className="flex items-center space-x-3">
                               <span className="text-2xl">{tech.icon}</span>
-                              <span className="font-medium text-gray-800 dark:text-gray-200">{tech.name}</span>
-                            </div>
-                            <span className="text-sm font-bold text-gray-500 dark:text-gray-400">
+                              <span className="font-medium text-gray-800 dark:text-gray-200 px-3 py-1 rounded-full bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700">
+                                {tech.name}
+                              </span>
+                              </div>
+                            <span className="hidden">
                               {tech.proficiency}%
                             </span>
                           </div>
-                          <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
-                            <div
-                              className={`h-full bg-gradient-to-r ${category.color} rounded-full transition-all duration-1000 ease-out`}
-                              style={{
-                                width: isVisible ? `${tech.proficiency}%` : "0%",
-                                transitionDelay: `${categoryIndex * 200 + techIndex * 100}ms`,
-                              }}
-                            />
-                          </div>
+                          <div className="hidden" />
                         </div>
                       ))}
                     </div>

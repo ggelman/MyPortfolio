@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { DM_Sans } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
+import { Toaster } from "@/components/ui/toaster"
 import Script from "next/script"
 
 const dmSans = DM_Sans({
@@ -28,13 +29,14 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  readonly children: React.ReactNode
 }) {
   return (
     <html lang="pt-BR" suppressHydrationWarning className={dmSans.variable}>
       <body className={`${dmSans.className} antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={true} disableTransitionOnChange={false}>
           {children}
+          <Toaster />
         </ThemeProvider>
 
         {/* Google Analytics */}

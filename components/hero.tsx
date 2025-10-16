@@ -1,6 +1,12 @@
+"use client"
+
 import { ArrowDown, MapPin, Code, Sparkles } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useEffect, useState } from "react"
+
+interface StarStyle extends React.CSSProperties {
+  id: number;
+}
 
 export function Hero() {
   const [currentPhrase, setCurrentPhrase] = useState(0)
@@ -10,6 +16,19 @@ export function Hero() {
     "Foco em eficiência e entrega de valor",
     "Dev, estrategista e apaixonada por boas soluções",
   ]
+
+  const [starStyles, setStarStyles] = useState<StarStyle[]>([]);
+
+  useEffect(() => {
+    const styles = [...Array(20)].map((_, i) => ({
+      id: i,
+      left: `${Math.random() * 100}%`,
+      top: `${Math.random() * 100}%`,
+      animationDelay: `${Math.random() * 3}s`,
+      animationDuration: `${2 + Math.random() * 2}s`,
+    }));
+    setStarStyles(styles);
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -37,16 +56,11 @@ export function Hero() {
           style={{ animationDelay: "2s" }}
         ></div>
 
-        {[...Array(20)].map((_, i) => (
+        {starStyles.map((style) => (
           <div
-            key={i}
+            key={style.id}
             className="absolute w-1 h-1 bg-purple-400 dark:bg-purple-400 rounded-full animate-pulse"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${2 + Math.random() * 2}s`,
-            }}
+            style={style}
           />
         ))}
       </div>
@@ -80,7 +94,7 @@ export function Hero() {
           </div>
 
           <h2 className="text-xl md:text-2xl text-gray-700 dark:text-gray-300 mb-8 font-light">
-            Desenvolvedora Full Stack e Gerente de Projetos Júnior
+            Desenvolvedora Full Stack
           </h2>
 
           <div className="h-16 mb-12 flex items-center justify-center">

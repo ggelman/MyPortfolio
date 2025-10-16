@@ -9,7 +9,6 @@ import { Testimonials } from "@/components/testimonials"
 import { Resume } from "@/components/resume"
 import { Contact } from "@/components/contact"
 import { FloatingCTA } from "@/components/floating-cta"
-import { Chatbot } from "@/components/chatbot"
 import { Footer } from "@/components/footer"
 
 export default function Home() {
@@ -73,7 +72,6 @@ export default function Home() {
       </main>
       <Footer />
       <FloatingCTA />
-      <Chatbot />
     </div>
   )
 }

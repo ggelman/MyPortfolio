@@ -1,3 +1,5 @@
+"use client"
+
 import { MessageCircle, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useState } from "react"
@@ -40,7 +42,7 @@ export function FloatingCTA() {
               onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
               className="w-full border-purple-500/50 text-purple-600 dark:text-purple-300 hover:bg-purple-50 dark:hover:bg-purple-500/10"
             >
-              Ver formulário
+              Canais de contato
             </Button>
           </div>
         </div>

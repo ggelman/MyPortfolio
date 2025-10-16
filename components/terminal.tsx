@@ -1,4 +1,4 @@
-
+"use client"
 
 import { useEffect, useState } from "react"
 
@@ -74,9 +74,9 @@ export function Terminal() {
       await new Promise((resolve) => setTimeout(resolve, 500))
 
       if (cmd.output.length > 0) {
-        for (let i = 0; i < cmd.output.length; i++) {
+        for (const line of cmd.output) {
           if (!isMounted) return
-          setDisplayText((prev) => prev + "\n" + cmd.output[i])
+          setDisplayText((prev) => prev + "\n" + line)
           await new Promise((resolve) => setTimeout(resolve, 100))
         }
       }

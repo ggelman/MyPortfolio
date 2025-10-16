@@ -1,3 +1,5 @@
+"use client"
+
 import { useEffect, useRef, useState } from "react"
 import { Users, Brain, MessageSquare, Target, Zap, CheckCircle, Award, Lightbulb } from "lucide-react"
 
@@ -51,7 +53,7 @@ export function Skills() {
     {
       name: "Liderança técnica",
       icon: Award,
-      level: 85,
+      level: 70,
       description: "Mentoria e direcionamento de equipes",
       color: "from-teal-500 to-blue-500",
     },
@@ -84,7 +86,7 @@ export function Skills() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="py-32 bg-gradient-to-b from-white to-gray-50 dark:from-black dark:to-gray-900">
+    <section id="skills" ref={sectionRef} className="py-32 bg-gradient-to-b from-white to-gray-50 dark:from-black dark:to-gray-900">
       <div className="container mx-auto px-6">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
@@ -117,7 +119,7 @@ export function Skills() {
                       {skill.description}
                     </p>
 
-                    <div className="space-y-2">
+                    <div className="hidden">
                       <div className="flex justify-between items-center">
                         <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Proficiência</span>
                         <span className="text-sm font-bold text-gray-900 dark:text-white">{skill.level}%</span>

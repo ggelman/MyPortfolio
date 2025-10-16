@@ -1,3 +1,5 @@
+"use client"
+
 import { useState, useEffect } from "react"
 import { Menu, X, Moon, Sun, Zap } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -32,6 +34,17 @@ export function Header() {
   const toggleTheme = () => {
     setTheme(theme === "dark" ? "light" : "dark")
   }
+
+  const getSectionName = (section: string) => {
+    const names: { [key: string]: string } = {
+      home: "início",
+      about: "sobre",
+      skills: "habilidades",
+      projects: "projetos",
+      contact: "contato",
+    };
+    return names[section] || section;
+  };
 
   if (!mounted) {
     return (
@@ -89,15 +102,7 @@ export function Header() {
                 onClick={() => scrollToSection(section)}
                 className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-all duration-300 font-medium capitalize relative group"
               >
-                {section === "home"
-                  ? "início"
-                  : section === "about"
-                    ? "sobre"
-                    : section === "skills"
-                      ? "habilidades"
-                      : section === "projects"
-                        ? "projetos"
-                        : "contato"}
+                {getSectionName(section)}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-500 to-blue-500 transition-all duration-300 group-hover:w-full"></span>
               </button>
             ))}
@@ -142,15 +147,7 @@ export function Header() {
                   onClick={() => scrollToSection(section)}
                   className="text-left text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors py-2 capitalize"
                 >
-                  {section === "home"
-                    ? "início"
-                    : section === "about"
-                      ? "sobre"
-                      : section === "skills"
-                        ? "habilidades"
-                        : section === "projects"
-                          ? "projetos"
-                          : "contato"}
+                  {getSectionName(section)}
                 </button>
               ))}
               <div className="pt-4 border-t border-gray-200 dark:border-purple-500/20">
